@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
       
       - name: working dir after checkout
-        run: la -al
+        run: ls -al
 
   second_job:
     if: ${{ github.ref == 'refs/heads/main'}}
