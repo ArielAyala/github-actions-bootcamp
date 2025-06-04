@@ -11,8 +11,14 @@ jobs:
       NAME: 'Codigo facilito'
 
     steps:
-      - name: Hola mundo
-        run: echo "Hola mundo ${{ env.NAME}}"
+      - name: Working dir
+        run: ls -al
+
+      - name: Action
+        uses: actions/checkout@v4
+      
+      - name: working dir after checkout
+        uses: la -al
 
   second_job:
     if: ${{ github.ref == 'refs/heads/main'}}
