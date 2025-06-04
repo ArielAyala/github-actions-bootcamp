@@ -7,6 +7,9 @@ jobs:
     name: Nombre del primer job
     runs-on: ubuntu-latest
 
+    outputs:
+      salida: hola
+
     env:
       NAME: 'Codigo facilito'
 
@@ -19,10 +22,12 @@ jobs:
         run: echo ${{ steps.step_1.outputs.my_variable}}
 
   second_job:
-    if: ${{ github.ref == 'refs/heads/main'}}
     needs: first_job
     runs-on: ubuntu-latest
 
+    env:
+      SALIDA: ${{ needs.first_job.outputs.salida}}
+
     steps:
       - name: Hola mundo
-        run: echo "Hola mundo segundo ${{ github.ref }}"
+        run: echo "Hola mundo segundo ${{ env.SALIDA }}"
