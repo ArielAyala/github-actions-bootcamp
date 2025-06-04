@@ -4,6 +4,7 @@ on: push
 
 jobs:
   first_job:
+    name: Nombre del primer job
     runs-on: ubuntu-latest
 
     env:
